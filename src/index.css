@@ -60,7 +60,6 @@ h6 {
 footer {
   background-color: #f8f9fa;
   color: #333;
-  padding: 2rem 0;
   font-family: Arial, sans-serif;
 }
 
@@ -68,6 +67,9 @@ footer {
 footer h6 {
   font-weight: bold;
   color: #007bff;
+  display: flex;
+  justify-content: center;
+  
 }
 
 footer p, footer a {
@@ -81,17 +83,11 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Estilos para la sección superior con redes sociales */
-.footer-social-icons {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-}
 
-.footer-social-icons a {
+.footer-icons {
   color: #555;
-  margin: 0 10px;
-  font-size: 1.2rem;
+  
+  font: size 3.5em;
 }
 
 /* Efecto hover en los iconos de redes sociales */
