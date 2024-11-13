@@ -1,53 +1,83 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Footer from './Footer';
 
 const NuevoRegistro = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+    // Aquí va la lógica para manejar el registro del formulario
   };
 
   const handleGoogleSignIn = () => {
+
   };
 
   return (
-    <section>
-    <h1 class="title"> Regístrate ¡Es gratis!</h1>
-  
-    <Form className="form" onSubmit={handleSubmit}>
-      <div>
-        <Form.Control type="text" id="nombre" name="nombre" placeholder="Nombre" required />
-      </div>
-  
-      <div>
-        <Form.Control type="text" id="apellido" name="apellido" placeholder="Apellido" required />
-      </div>
-  
-      <div>
-        <Form.Control type="email" id="email" name="email" placeholder="Email" required />
-      </div>
-  
-      <div>
-        <Form.Control type="password" id="password" name="password" placeholder="Contraseña" required />
-      </div>
-  
-      <div>
-        <Form.Control type="password" id="confirm-password" name="confirm-password" placeholder="Confirma tu contraseña" required />
-      </div>
-  <br />
-      <div>
-        <Button type="submit">Crea tu cuenta</Button>
-      </div>
-  
+    <section className="registro-section">
+      <h1 className="title">Regístrate ¡Es gratis!</h1>
 
-      <p>¿Ya tienes una cuenta? <Link to="/login"><b>Inicia sesión</b></Link></p>
-    </Form>
-  
-    <Footer />
-  </section>
-  
+      <Form className="form" onSubmit={handleSubmit}>
+        <Form.Group controlId="nombre">
+          
+          <Form.Control
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+            required
+          />
+        
+        </Form.Group>
+
+        <Form.Group controlId="apellido">
+          
+          <Form.Control
+            type="text"
+            name="apellido"
+            placeholder="Apellido"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="email">
+          
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="password">
+          
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="confirm-password">
+          <Form.Control
+            type="password"
+            name="confirm-password"
+            placeholder="Confirma tu contraseña"
+            required
+          />
+        </Form.Group>
+
+        <br />
+        <Link to="/">
+          <Button type="submit">Crea tu cuenta</Button>
+        </Link>
+      </Form>
+
+      <p>¿Ya tienes una cuenta? <Link to="/iniciosesion"><b>Inicia sesión</b></Link></p>
+
+      <Footer />
+    </section>
   );
 };
 

@@ -5,10 +5,10 @@ import Footer from './Footer';
 
 const Clientes = () => {
 
-  // This function will handle the form submission
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Your logic for form submission goes here
+
   };
 
   return (
@@ -17,31 +17,33 @@ const Clientes = () => {
 
       <Form className="form" onSubmit={handleSubmit}>
         <div>
-          <Form.Control 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="Enter email"
-            required 
+          <Form.Control
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ingresa email"
+            required
           />
         </div>
 
         <div>
-          <Form.Control 
-            type="password" 
-            id="password" 
-            name="password" 
-            placeholder="Password" 
-            required 
+          <Form.Control
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Ingresa contraseña"
+            required
           />
         </div>
-      <br />
+        <br />
 
         <div>
-          <Button type="submit">Iniciar sesión</Button>
+          <Link to="/">
+            <Button type="submit">Iniciar sesión</Button>
+          </Link>
         </div>
 
-        <p>¿No tienes una cuenta? <Link to="/login"><b>Crear cuenta</b></Link></p>
+        <p>¿No tienes una cuenta? <Link to="/registro"><b>Crear cuenta</b></Link></p>
       </Form>
 
       <Footer />

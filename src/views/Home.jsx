@@ -11,12 +11,12 @@ const Home = () => {
     <>
       <Navbar />
       <Header />
-      <Buscador />  
+      <Buscador />
       <ShoesList>
         <Card />
       </ShoesList>
-      <Footer/>
-      
+      <Footer />
+
     </>
   );
 };

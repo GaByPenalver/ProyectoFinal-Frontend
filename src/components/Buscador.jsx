@@ -1,59 +1,29 @@
-import { createContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { ShoesContext } from "../context/ShoesProvider";
 
-// Creación del context
-export const ShoesContext = createContext();
 
-// Provider con la fuente de datos
-const ShoesProvider = ({children}) => {
-  const [shoes, setShoes] = useState([]);
-  const [carrito, setCarrito] = useState([]);
+const Buscador = () => {
+  const { searchShoes } = useContext(ShoesContext);
+  const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    getShoes();
-  }, []);
-
-  // Obtener las pizzas
-  const getShoes = async () => {
-    const res = await fetch("/HITO2/shoes.json");
-    const shoes = await res.json();
-    setShoes(shoes);
-  };
-
-  // Funciones para el carro
-  const addToCart = ({ id, price, name, img }) => {
-    const productoEcontradoIndex = carrito.findIndex((p) => p.id === id);
-    const producto = { id, price, name, img, count: 1 };
-
-    if (productoEcontradoIndex >= 0) {
-      carrito[productoEcontradoIndex].count++;
-      setCarrito([...carrito]);
-    } else {
-      setCarrito([...carrito, producto]);
-    }
-  };
-
-  const increment = (i) => {
-    carrito[i].count++;
-    setCarrito([...carrito]);
-  };
-
-  const decrement = (i) => {
-    const { count } = carrito[i];
-    if (count === 1) {
-      carrito.splice(i, 2);
-    } else {
-      carrito[i].count--;
-    }
-    setCarrito([...carrito]);
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    searchShoes(value);
   };
 
   return (
-    <ShoesContext.Provider
-      value={{ shoes, carrito, setCarrito, addToCart, increment, decrement }}
-    >
-      {children}
-    </ShoesContext.Provider>
+    <div className="buscador-container">
+      <input
+        type="text"
+        placeholder="Buscar zapatos... 🔍 "
+        value={query}
+        onChange={handleSearch}
+        className="form-control"
+      />
+
+    </div>
   );
 };
 
-export default ShoesProvider;
+export default Buscador;

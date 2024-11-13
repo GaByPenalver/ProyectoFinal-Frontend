@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { shoesContext } from "../context/ShoesProvider";
+import { ShoesContext } from "../context/ShoesProvider";
+import Footer from "./Footer";
 
 const Detalle = () => {
   const [shoeDetail, setShoeDetail] = useState({});
-  const { shoes, addToCart } = useContext(shoesContext);
+  const { shoes, addToCart } = useContext(ShoesContext);
   const { id } = useParams();
 
   const obtenerDatos = () => {
@@ -43,17 +44,19 @@ const Detalle = () => {
                 </ul>
                 <div className="d-flex justify-content-around">
                   <h4>Precio: ${shoeDetail.price}</h4>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => addToCart(shoeDetail)}
-                  >
-                    Añadir &#128722;
-                  </button>
+
                 </div>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => addToCart(shoeDetail)}
+                >
+                  Añadir &#128722;
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

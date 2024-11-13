@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import { LiaCcVisa } from "react-icons/lia";
+import { FaCcMastercard } from "react-icons/fa";
+import { SlPaypal } from "react-icons/sl";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const PaymentCardForm = () => {
-  // Estados para manejar los valores de los campos del formulario
+
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
   const [cardHolder, setCardHolder] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isCardReady, setIsCardReady] = useState(false);
 
-  // Manejar el envío del formulario
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validación básica
+
     if (!cardNumber || !expiryDate || !cvv || !cardHolder) {
       setErrorMessage('Por favor complete todos los campos.');
       return;
@@ -33,15 +39,31 @@ const PaymentCardForm = () => {
       return;
     }
 
-    // Aquí iría la lógica para procesar el pago, como hacer una llamada API
+    if (!isCardReady) {
+      setErrorMessage('Por favor, asegúrate de que la tarjeta esté lista para pagar.');
+      return;
+    }
 
-    setErrorMessage(''); // Limpiar mensaje de error si la validación es exitosa
+
+
+    setErrorMessage('');
     alert('¡Pago procesado correctamente!');
   };
 
   return (
     <div className="payment-card-form">
       <h2>Ingreso de tarjeta de pago</h2>
+      <p><strong>Tipo de Tarjeta</strong></p>
+      <div className="icon-tarjeta">
+        <button type="button">
+          <i>
+            <LiaCcVisa style={{ color: "red" }} />
+          </i>
+        </button>
+        <button type="button"><i><FaCcMastercard style={{ color: "white" }} /></i></button>
+        <button type="button"><i><SlPaypal style={{ color: "red" }} /></i></button>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="cardHolder">Nombre del Titular</label>
@@ -96,7 +118,17 @@ const PaymentCardForm = () => {
 
         {errorMessage && <div className="error-message">{errorMessage}</div>}
 
-        <button type="submit" className="btn-submit">Pagar</button>
+        <Form>
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+            label={isCardReady ? "Tarjeta Lista Para Pagar" : ""}
+            checked={isCardReady}
+            onChange={() => setIsCardReady(!isCardReady)}
+          />
+        </Form>
+
+
       </form>
     </div>
   );

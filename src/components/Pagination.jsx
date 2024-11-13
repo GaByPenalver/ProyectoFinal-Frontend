@@ -6,8 +6,8 @@ const PaginationCards = () => {
   const [activePage, setActivePage] = useState(1);
 
   useEffect(() => {
-    // Cargar datos desde el archivo JSON en la carpeta public
-    fetch('/pizzas.json') // Aquí la ruta es solo '/pizzas.json'
+
+    fetch('./shoes.json')
       .then(response => response.json())
       .then(data => setshoes(data))
       .catch(error => console.error('Error al cargar el JSON:', error));
@@ -17,7 +17,7 @@ const PaginationCards = () => {
   const itemsPerPage = 6;
   const totalPages = Math.ceil(shoes.length / itemsPerPage);
 
-  // Obtener las pizzas de la página actual
+  // Obtener los shoes de la página actual
   const currentItems = shoes.slice((activePage - 1) * itemsPerPage, activePage * itemsPerPage);
 
   // Manejar el cambio de página
