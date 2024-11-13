@@ -17,6 +17,7 @@ li {
   font-size: 10px;
 }
 
+
 .volver-inicio {
   padding-top: 30px;
   text-decoration: none;
@@ -92,8 +93,7 @@ footer a:hover {
 
 .footer-icons {
   color: #9671f6;
-
-  font: size 3.5em;
+  font-size:3.5em;
 }
 
 
@@ -121,8 +121,12 @@ footer a:hover {
   padding: 5%;
   background-color: #17a2b8;
   min-height: 100vh;
+  border-radius: 5%;
+  padding-top: 50px;
 
 }
+
+
 
 .icon-tarjeta {
   background-color: #007bff;
@@ -135,11 +139,14 @@ footer a:hover {
   gap: 45px;
 }
 
+
+
 i {
   font-size: 2.5em;
   justify-content: center;
   text-align: center;
 }
+
 
 .form-group {
   background-color: #17a2b8;
@@ -250,19 +257,8 @@ a:hover {
 }
 
 
-.payment-card-form {
-  padding: 5%;
-  background-color: #17a2b8;
-  min-height: 100vh;
-  border-radius: 5%;
-  padding-top: 50px;
-}
 
-.icon-tarjeta {
-  gap: 20px;
-  padding: 10px;
-  background-color: #17a2b8;
-}
+
 
 .icon-tarjeta button {
   padding-top: -15px;
@@ -278,12 +274,6 @@ a:hover {
 
 
 
-
-i {
-  font-size: 2.5rem;
-  justify-content: center;
-  text-align: center;
-}
 
 .carrousel {
   min-height: auto;
@@ -303,9 +293,7 @@ i {
 
 }
 
-.notFound {
-  font-size: 20px;
-}
+
 
 .g-0 {
   width: auto;
@@ -320,7 +308,6 @@ i {
 .card-body {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   align-items: baseline
 }
